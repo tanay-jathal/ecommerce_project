@@ -35,7 +35,7 @@ html5lib==1.1
 httpie==3.2.4
 idna==3.10
 ipykernel==6.29.5
-ipython==9.2.0
+ipython==8.18.1
 ipython_pygments_lexers==1.1.1
 ipywidgets==8.1.7
 isoduration==20.11.0
