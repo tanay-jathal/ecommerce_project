@@ -1,0 +1,28 @@
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    gap: 20px;
+}
+
+.product-details {
+    flex: 2;
+}
+
+.product-image {
+    width: 200px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.product-name {
+    font-size: 1.1rem; /* Smaller than default (maybe h2/h3) */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 0.95em;
+    line-height: 1.4;}
+

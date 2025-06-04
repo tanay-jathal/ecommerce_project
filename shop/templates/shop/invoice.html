@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{%block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .summary { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Invoice</h2>
+    <p><strong>Customer:</strong> {{ customer.username }}</p>
+    <p><strong>Phone:</strong> {{ phone_number }}</p>
+    <p><strong>Shipping Address:</strong> {{ shipping_address }}</p>
+    <p><strong>Pincode:</strong> {{ pincode }}</p>
+    <p><strong>Order Date:</strong> {{ order_date }}</p>
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price (₹)</th>
+            <th>Total (₹)</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product_name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.price }}</td>
+            <td>₹{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="3" style="text-align:right;">Total</th>
+            <th>₹{{ total }}</th>
+        </tr>
+    </table>
+
+    <a href="{% url 'invoice_docx_download' order.id %}" class="btn btn-primary">
+    Download Invoice (.docx)
+</a>
+
+</body>
+</html>
+{% endblock %}

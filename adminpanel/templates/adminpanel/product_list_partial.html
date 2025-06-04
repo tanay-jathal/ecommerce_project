@@ -1,0 +1,51 @@
+{% for product in products %}
+
+{% if user.is_staff %}
+    <div class="text-end mb-3">
+        <a href="{% url 'product_add' %}" class="btn btn-success">Add Product</a>
+    </div>
+{% endif %}
+
+
+    <div class="product-container mb-4">
+        <div class="product-details">
+            <h4 class="product-name">{{ product.name }}</h4>
+            <p class="product-description">{{ product.description }}</p>
+            <p><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p><strong>In Stock:</strong> {{ product.stock }}</p>
+        </div>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+        <form method="post" action="{% url 'add_to_wishlist' product.id %}">
+    {% csrf_token %}
+    <button type="submit">Add to Wishlist</button>
+</form>
+        {% if product.stock > 0 %}
+            <form method="POST" action="{% url 'add_to_cart' product.pk %}">
+                {% csrf_token %}
+                <label for="quantity_{{ product.pk }}">Quantity:</label>
+                <input type="number"
+                       id="quantity_{{ product.pk }}"
+                       name="quantity"
+                       value="1"
+                       min="1"
+                       max="{{ product.stock }}"
+                       required>
+                <button type="submit">Add to Cart</button>
+            </form>
+        {% else %}
+            <p style="color: red; font-weight: bold;">Out of Stock</p>
+            <button type="button" disabled style="opacity: 0.6;">Add to Cart</button>
+        {% endif %}
+    </div>
+    
+    {% if user.is_staff %}
+    <div class="btn-group mt-2" role="group">
+        <a href="{% url 'product_edit' product.pk %}" class="btn btn-outline-primary btn-sm">Edit</a>
+        <a href="{% url 'product_delete' product.pk %}" class="btn btn-outline-danger btn-sm">Delete</a>
+    </div>
+    {% endif %}
+    
+    <hr>
+{% empty %}
+    <p>No products available for this category.</p>
+{% endfor %}

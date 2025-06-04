@@ -1,0 +1,22 @@
+{% extends "adminpanel/base.html" %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+  <div class="bg-white rounded-xl shadow p-6 text-center">
+    <h2 class="text-xl font-semibold text-gray-700">Products</h2>
+    <p class="text-3xl font-bold text-blue-600">{{ total_products }}</p>
+  </div>
+
+  <div class="bg-white rounded-xl shadow p-6 text-center">
+    <h2 class="text-xl font-semibold text-gray-700">Orders</h2>
+    <p class="text-3xl font-bold text-green-600">{{ total_orders }}</p>
+  </div>
+
+  <div class="bg-white rounded-xl shadow p-6 text-center">
+    <h2 class="text-xl font-semibold text-gray-700">Users</h2>
+    <p class="text-3xl font-bold text-purple-600">{{ total_users }}</p>
+  </div>
+</div>
+
+{% endblock %}

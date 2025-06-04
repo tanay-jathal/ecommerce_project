@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Django Site{% endblock %}
+
+{% block content %}
+    <h1>Welcome to E-commerce Website</h1>
+    <p>This page is rendered using Django templating and includes a reusable navbar.</p>
+
+    {# Make sure you pass 'product' context from your view, or use .first if needed #}
+    <a href="{% url 'product_detail' pk=product.pk %}">Product Detail</a>
+    <a href="{% url 'cart' %}">cart</a>
+
+    <!-- Logout Button -->
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% endblock %}
