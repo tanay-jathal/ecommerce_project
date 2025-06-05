@@ -132,12 +132,10 @@ LOGIN_URL = '/login/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 TAILWIND_APP_NAME = 'theme'
 
-ALLOWED_HOSTS = ['https://ecommerce-project-zdgt.onrender.com']
+ALLOWED_HOSTS = ['ecommerce-project-zdgt.onrender.com']
 
 
