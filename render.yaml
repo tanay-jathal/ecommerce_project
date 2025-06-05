@@ -13,7 +13,7 @@ services:
       - key: SECRET_KEY
         value: 01^wf!ifn3tn&p!bqsk54s_uws3(@_vc@kxr+oo((%ugrti_mr
       - key: ALLOWED_HOSTS
-        value: ecommerce-django.onrender.com
+        value: ecommerce-django-11y3.onrender.com
       - key: DATABASE_URL
         fromDatabase: 
           name: ecommerce-db
