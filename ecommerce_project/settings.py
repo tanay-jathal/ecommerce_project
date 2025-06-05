@@ -126,8 +126,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-TAILWIND_APP_NAME = 'theme'
-
 ALLOWED_HOSTS = ['ecommerce-project-zdgt.onrender.com']
 
 
